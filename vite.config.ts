@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import path from 'path'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import path from "path";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [
@@ -10,10 +10,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: process.env.VITE_BASE_PATH || "/Invoicehub",
   resolve: {
     alias: {
       // Alias @ to the src directory
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 
@@ -21,44 +22,44 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (!id.includes('node_modules')) {
+          if (!id.includes("node_modules")) {
             return;
           }
 
           if (
-            id.includes('/react/') ||
-            id.includes('/react-dom/') ||
-            id.includes('/scheduler/')
+            id.includes("/react/") ||
+            id.includes("/react-dom/") ||
+            id.includes("/scheduler/")
           ) {
-            return 'react-vendor';
+            return "react-vendor";
           }
 
-          if (id.includes('/react-router/')) {
-            return 'router-vendor';
+          if (id.includes("/react-router/")) {
+            return "router-vendor";
           }
 
-          if (id.includes('/@supabase/')) {
-            return 'supabase-vendor';
+          if (id.includes("/@supabase/")) {
+            return "supabase-vendor";
           }
 
           if (
-            id.includes('/@radix-ui/') ||
-            id.includes('/lucide-react/') ||
-            id.includes('/sonner/')
+            id.includes("/@radix-ui/") ||
+            id.includes("/lucide-react/") ||
+            id.includes("/sonner/")
           ) {
-            return 'ui-vendor';
+            return "ui-vendor";
           }
 
-          if (id.includes('/recharts/')) {
-            return 'charts-vendor';
+          if (id.includes("/recharts/")) {
+            return "charts-vendor";
           }
 
-          return 'vendor';
+          return "vendor";
         },
       },
     },
   },
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
-  assetsInclude: ['**/*.svg', '**/*.csv'],
-})
+  assetsInclude: ["**/*.svg", "**/*.csv"],
+});
