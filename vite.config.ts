@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: process.env.VITE_BASE_PATH || "/Invoicehub",
+  base: process.env.VITE_BASE_PATH || "/Invoicepro",
   resolve: {
     alias: {
       // Alias @ to the src directory
