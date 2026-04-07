@@ -112,7 +112,7 @@ export function Layout({ children }: LayoutProps) {
             </svg>
           </div>
           <div>
-            <h1 className="text-lg font-semibold tracking-tight text-white">Invoice Hub</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-white">Invoice Pro</h1>
             <p className="text-[10px] uppercase tracking-[0.2em] text-slate-300">Next-gen billing</p>
           </div>
           </div>
